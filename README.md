@@ -17,7 +17,7 @@ Run once:
 
 ## IntelliJ IDEA
 
-Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, download one as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
+Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, [download one](https://tomcat.apache.org/) as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
 
 ### Server
 
@@ -42,3 +42,11 @@ Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat 
 
 - Select `Tomcat Localhost Log` and `Tomcat Catalina Log`
 - Add a new log entry with the alias `idp` and the log file location `<project-path>/build/tmp/unpackShibboleth/shibboleth-idp/logs/idp-*.log`
+
+## Usage
+
+The `src/test/overlay` directory contains files that will be laid on top of the originals. Mimic the same directory structure as the IdP itself and add files for customizations.
+
+## Authentication
+
+Authentication is mocked using a dummy JAAS connector. Use any password/username you like. All is welcome.
