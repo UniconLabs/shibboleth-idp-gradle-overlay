@@ -1,6 +1,8 @@
 shibboleth-idp-gradle-overlay
 =============================
-The Shibboleth Identity Provider web application built using a Gradle overlay.
+The Shibboleth Identity Provider web application built using a Gradle overlay. (A similar yet much uglier experiment done with Maven [exists here](https://github.com/UniconLabs/shibboleth-idp-webapp))
+
+> This project was developed as part of Unicon's [Open Source Support program](https://unicon.net/support). Professional support/integration assistance for this module is available. For more information, visit <https://unicon.net/opensource/shibboleth>.
 
 ## Requirements
 
