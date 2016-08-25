@@ -45,8 +45,13 @@ Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat 
 
 ## Usage
 
+### Overlay
 The `src/test/overlay` directory contains files that will be laid on top of the originals. Mimic the same directory structure as the IdP itself and add files for customizations.
 
-## Authentication
+### Authentication
 
 Authentication is mocked using a dummy JAAS connector. Use any password/username you like. All is welcome.
+
+### Logs
+
+Logging is controlled by the `logback.xml` file in the `overlay` directory. `DEBUG` level is turned on by default for a number of packages.
