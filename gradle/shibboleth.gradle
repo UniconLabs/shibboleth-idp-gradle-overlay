@@ -10,18 +10,18 @@ buildscript {
 
 apply plugin: 'war'
 
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
+}
+
 configurations {
     shibboleth
     shibbolethAntTasks
 
     provided
     compile.extendsFrom provided
-}
-
-repositories {
-    mavenLocal()
-    jcenter()
-    maven { url 'https://build.shibboleth.net/nexus/content/groups/public' }
 }
 
 dependencies {
@@ -243,5 +243,27 @@ task generateMetadata(dependsOn: 'generateSelfSignedCerts') {
     }
 }
 
-tasks.war.dependsOn 'overlay'
-webAppDirName = "${unpackShibboleth.outputs.files[0]}/webapp"
+//Clean docker containers
+task cleanDockerImage(type:Exec) {
+    group = 'docker'
+    commandLine 'docker', 'stop', '-f', '/shib-local-test','.'
+    commandLine 'docker', 'rm', '-f', '/shib-local-test','.'
+
+}
+
+task buildDockerImage(type:Exec) {
+    dependsOn unpackShibboleth
+    dependsOn cleanDockerImage
+    group = 'docker'
+
+    commandLine 'docker', 'build', '-t', 'unicon/shibboleth-idp', '--build-arg', "version=${project.'version'}", '.'
+}
+
+task runDockerImage(type:Exec) {
+    dependsOn buildDockerImage
+    group = 'docker'
+    commandLine 'docker', 'run', '-d', '--name', 'shib-local-test', 'unicon/shibboleth-idp'
+}
+
+    tasks.war.dependsOn 'overlay'
+    webAppDirName = "${unpackShibboleth.outputs.files[0]}/webapp"
