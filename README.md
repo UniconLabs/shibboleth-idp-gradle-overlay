@@ -57,3 +57,20 @@ Authentication is mocked using a dummy JAAS connector. Use any password/username
 ### Logs
 
 Logging is controlled by the `logback.xml` file in the `overlay` directory. `DEBUG` level is turned on by default for a number of packages.
+
+## Build, Run and Remove docker image
+
+Build the docker image without running it. This will also rebuild your shibboleth:
+```bash
+./gradlew buildDockerImage
+```
+
+Build and run the docker image, if you see an error that says that you cannot have duplicate images, then run the "cleanDockerImage" task below before running this task again:
+```bash
+./gradlew runDockerImage
+```
+
+Stop and remove the docker image if it is running.
+```bash
+./gradlew cleanDockerImage
+```
