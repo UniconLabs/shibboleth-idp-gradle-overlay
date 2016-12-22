@@ -65,7 +65,7 @@ Build the docker image without running it. This will also rebuild your shibbolet
 ./gradlew buildDockerImage
 ```
 
-Build and run the docker image:
+Build and run the docker image, if you see an error that says that you cannot have duplicate images, then run the "cleanDockerImage" task below before running this task again:
 ```bash
 ./gradlew runDockerImage
 ```
