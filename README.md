@@ -57,3 +57,20 @@ Authentication is mocked using a dummy JAAS connector. Use any password/username
 ### Logs
 
 Logging is controlled by the `logback.xml` file in the `overlay` directory. `DEBUG` level is turned on by default for a number of packages.
+
+## Build, Run and Remove docker image
+
+Build the docker image without running it:
+```bash
+./gradlew clean buildDockerImage
+```
+
+Build and run the docker image:
+```bash
+./gradlew clean runDockerImage
+```
+
+Stop and remove the docker image if it is running.
+```bash
+./gradlew clean cleanDockerImage
+```

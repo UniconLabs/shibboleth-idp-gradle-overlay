@@ -245,23 +245,24 @@ task generateMetadata(dependsOn: 'generateSelfSignedCerts') {
 
 //Clean docker containers
 task cleanDockerImage(type:Exec) {
+    dependsOn clean
     group = 'docker'
-    commandLine 'docker', 'stop', '-f', '/shib-local-test','.'
-    commandLine 'docker', 'rm', '-f', '/shib-local-test','.'
+    commandLine 'docker', 'stop', '-f', '/shib-local-test'
+    commandLine 'docker', 'rm', '-f', '/shib-local-test'
 
 }
 
 task buildDockerImage(type:Exec) {
     dependsOn unpackShibboleth
-    dependsOn cleanDockerImage
     group = 'docker'
-
+//    def variable = {commandLine 'docker ps'}
     commandLine 'docker', 'build', '-t', 'unicon/shibboleth-idp', '--build-arg', "version=${project.'version'}", '.'
 }
 
 task runDockerImage(type:Exec) {
     dependsOn buildDockerImage
     group = 'docker'
+    //commandLine 'docker', 'run', '-d', '-p 443:4443', '--name', 'shib-local-test', 'unicon/shibboleth-idp'
     commandLine 'docker', 'run', '-d', '--name', 'shib-local-test', 'unicon/shibboleth-idp'
 }
 
