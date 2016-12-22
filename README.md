@@ -67,7 +67,7 @@ Build the docker image without running it. This will also rebuild your shibbolet
 
 Build and run the docker image:
 ```bash
-./gradlew clean runDockerImage
+./gradlew runDockerImage
 ```
 
 Stop and remove the docker image if it is running.
