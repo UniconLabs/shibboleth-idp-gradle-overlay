@@ -253,6 +253,7 @@ task cleanDockerImage(type:Exec) {
 }
 
 task buildDockerImage(type:Exec) {
+    dependsOn clean
     dependsOn unpackShibboleth
     group = 'docker'
 //    def variable = {commandLine 'docker ps'}

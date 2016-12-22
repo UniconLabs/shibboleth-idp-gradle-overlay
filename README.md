@@ -72,5 +72,5 @@ Build and run the docker image:
 
 Stop and remove the docker image if it is running.
 ```bash
-./gradlew clean cleanDockerImage
+./gradlew cleanDockerImage
 ```
