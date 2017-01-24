@@ -17,7 +17,9 @@ Run once:
 
 ## IntelliJ IDEA
 
-Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, download one as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
+Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, 
+download one as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
+
 
 ### Server
 
@@ -30,7 +32,6 @@ Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat 
 ```
 
 - For "Tomcat Server Settings", use ports `8080`, `8443` and `1099`.
-
 - For "Before launch" tasks, add `build overlay`.
 
 ### Deployment
