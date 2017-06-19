@@ -17,6 +17,14 @@ Run once:
 ./gradlew clean unpackShibboleth
 ```
 
+## Build
+
+Run afterwards:
+
+```bash
+./gradlew build overlay
+```
+
 ## IntelliJ IDEA
 
 Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, [download one](https://tomcat.apache.org/) 
