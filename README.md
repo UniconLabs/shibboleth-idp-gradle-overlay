@@ -19,7 +19,8 @@ Run once:
 
 ## IntelliJ IDEA
 
-Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, [download one](https://tomcat.apache.org/) as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
+Create a Run Configuration based on a Tomcat server. If you don't have a Tomcat instance available, [download one](https://tomcat.apache.org/) 
+as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
 download one as a zip archive and configure it inside IDEA. When done, select that as the application server in the Run Configuration screen.
 
 
@@ -62,11 +63,14 @@ Logging is controlled by the `logback.xml` file in the `overlay` directory. `DEB
 ## Build, Run and Remove docker image
 
 Build the docker image without running it. This will also rebuild your shibboleth:
+
 ```bash
 ./gradlew buildDockerImage
 ```
 
-Build and run the docker image, if you see an error that says that you cannot have duplicate images, then run the "cleanDockerImage" task below before running this task again:
+Build and run the docker image, if you see an error that says that you cannot have duplicate images, 
+then run the `cleanDockerImage` task below before running this task again:
+
 ```bash
 ./gradlew runDockerImage
 ```
