@@ -47,7 +47,7 @@ download one as a zip archive and configure it inside IDEA. When done, select th
 ![image](https://user-images.githubusercontent.com/1205228/27300133-77aa7ac4-54e3-11e7-8f8a-23d64bfc689a.png)
 
 
-Your external Tomcat server have enabled port `8443` in its `conf/server.xml` file:
+Your external Tomcat server must have enabled port `8443` in its `conf/server.xml` file:
 
 ```xml
 <Connector
