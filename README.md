@@ -57,6 +57,13 @@ Your external Tomcat server must have enabled port `8443` in its `conf/server.xm
    keystoreFile="${user.home}/mykeystore" keystorePass="changeit"
    clientAuth="false" sslProtocol="TLS"/>
 ```
+
+Ensure Tomcat binaries are allowed to execute:
+
+```bash
+chmod +x $CATALINA_HOME/bin/*.sh
+chmod +x $CATALINA_HOME/bin/*.bat
+```
 ### Deployment
 
 - Add an `External Source` for deployment, and select `<project-path>/build/tmp/unpackShibboleth/shibboleth-idp/webapp`
