@@ -26,7 +26,19 @@ configurations {
 
 dependencies {
     provided "net.shibboleth.idp:idp-distribution:${project.'shibboleth.version'}"
+    provided "net.shibboleth.idp:idp-authn-impl:${project.'shibboleth.version'}"
+    provided "net.shibboleth.idp:idp-profile-impl:${project.'shibboleth.version'}"
     shibboleth "net.shibboleth.idp:idp-distribution:${project.'shibboleth.version'}@tar.gz"
+
+    provided "org.opensaml:opensaml-profile-impl:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-messaging-impl:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-storage-impl:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-core:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-saml-impl:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-xmlsec-impl:${project.'opensaml.version'}"
+    provided "org.opensaml:opensaml-security-impl:${project.'opensaml.version'}"
+
+    providedCompile "javax.servlet:javax.servlet-api:${project.'servletapi.version'}"
 
     shibbolethAntTasks "net.shibboleth.idp:idp-installer:${project.'shibboleth.version'}"
     shibbolethAntTasks "org.bouncycastle:bcpkix-jdk15on:${project.'bouncycastle.version'}"

@@ -31,6 +31,7 @@
    
     <logger name="org.apache.xml.security" level="INFO" />
     <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.springframework.webflow" level="WARN"/>
     <logger name="org.apache.catalina" level="ERROR"/>
     <logger name="org.eclipse.jetty" level="ERROR"/>
     
