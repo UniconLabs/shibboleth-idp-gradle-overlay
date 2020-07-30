@@ -1,6 +1,11 @@
 .gradle
 build
 
+.history
+.classpath
+.project
+.vscode
+.settings
 *.iml
 .idea
 classes/

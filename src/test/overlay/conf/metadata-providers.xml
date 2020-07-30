@@ -41,7 +41,17 @@
         
     <MetadataProvider id="LocalMetadata"  xsi:type="FilesystemMetadataProvider" metadataFile="/somewhere/sp-metadata.xml"/>
     
-     -->
 
+     -->
+    <MetadataProvider id="LocalMetadata"  xsi:type="FilesystemMetadataProvider" metadataFile="/Users/Misagh/Workspace/GitWorkspace/shibboleth-sample-java-sp/src/main/resources/metadata/sp-metadata.xml"/>
+
+    <!--
+    <MetadataProvider id="incommon" xsi:type="DynamicHTTPMetadataProvider" maxCacheDuration="86400" minCacheDuration="60">
+        <MetadataFilter xsi:type="SignatureValidation" requireSignedRoot="true"
+                        certificateFile="/etc/cas/incommon-mdq.pem" />
+        <MetadataFilter xsi:type="RequiredValidUntil" maxValidityInterval="P14D" />
+        <MetadataQueryProtocol>http://mdq-preview.incommon.org/</MetadataQueryProtocol>
+    </MetadataProvider>
+    -->
 
 </MetadataProvider>
