@@ -45,14 +45,19 @@ dependencies {
 }
 
 task unpackShibboleth {
-    inputs.file configurations.shibboleth[0]
-    outputs.dir new File(temporaryDir, "shibboleth-idp")
+    def targetDir = new File(temporaryDir, "shibboleth-idp")
+    inputs.files configurations.shibboleth[0]
+    outputs.dir targetDir
     doLast {
         copy {
+            println "Copying files to ${temporaryDir}"
             from tarTree(resources.gzip(configurations.shibboleth[0]))
             into temporaryDir
         }
-        temporaryDir.listFiles().find {it.isDirectory()}.renameTo(new File(temporaryDir, 'shibboleth-idp'))
+        def targetIdPDir = new File(temporaryDir, "shibboleth-identity-provider-${project.'shibboleth.version'}")
+        println "Target identity provider directory: ${targetIdPDir}"
+        targetIdPDir.renameTo(targetDir)
+        println "Moved files to identity provider directory: ${targetDir}"
     }
 }
 
@@ -97,15 +102,16 @@ def copyOverlayFile = { String relSrcFile ->
 }
 
 task processIdpProperties(dependsOn: 'unpackShibboleth') {
-    ext.inputFile = "${unpackShibboleth.outputs.files[0]}/conf/idp.properties"
+    ext.inputFile = new File(unpackShibboleth.outputs.files[0], "conf/idp.properties")
     ext.outputFile = 'build/overlay/conf/idp.properties'
-    inputs.file inputFile
-    outputs.file outputFile
+    inputs.files inputFile
+    outputs.files outputFile
     doLast {
         def config = new org.apache.commons.configuration.PropertiesConfiguration()
         def layout = new org.apache.commons.configuration.PropertiesConfigurationLayout(config)
         layout.load(file(inputFile).newReader())
         file('build/overlay/conf').mkdirs()
+        println "Writing to ${outputFile}"
         layout.save(file(outputFile).newWriter(true))
     }
 }
