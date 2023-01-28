@@ -1,6 +1,2 @@
 apply from: 'gradle/shibboleth.gradle'
 
-repositories {
-    jcenter()
-}
-
