@@ -6,8 +6,8 @@ The Shibboleth Identity Provider web application built using a Gradle overlay. (
 
 ## Requirements
 
-- JDK 8+
-- Tomcat 8+
+- JDK 11
+- Tomcat 9
 
 ## Initial Setup
 
